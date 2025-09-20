@@ -221,9 +221,13 @@ animations {
 # Layer Rule #
 ############*/
 layer-rule {
-  match namespace="desktop"
+  match namespace="swww-daemon"
 
   place-within-backdrop true
+}
+layer-rule {
+  match namespace="desktop"
+  opacity 0.00
 }
 layer-rule {
   match namespace="^launcher$"
