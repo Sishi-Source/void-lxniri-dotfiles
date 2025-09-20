@@ -190,18 +190,25 @@ layout {
 # Miscellaneous #
 ###############*/
 spawn-at-startup "sh" "-c" "lxqt-session && niri msg action quit -s"
-spawn-at-startup "sh" "-c" "/home/ulquiorra/.local/share/script/gsettings.sh &"
-
-spawn-at-startup "nm-applet"
-spawn-at-startup "pipewire"
-spawn-at-startup "pipewire-pulse"
-spawn-at-startup "way-displays"
-spawn-at-startup "xwayland-satellite"
-spawn-at-startup "foot" "--server"
-
-spawn-at-startup "/usr/libexec/xdg-desktop-portal-gnome"
-spawn-at-startup "/usr/libexec/xdg-desktop-portal-lxqt"
-spawn-at-startup "/usr/libexec/xdg-desktop-portal-gtk"
+// spawn-at-startup "sh" "-c" "/home/ulquiorra/.local/share/script/gsettings.sh &"
+//
+// spawn-at-startup "lxqt-policykit-agent"
+// spawn-at-startup "lxqt-globalkeysd"
+// spawn-at-startup "lxqt-notificationd"
+// spawn-at-startup "lxqt-powermanagement"
+// spawn-at-startup "lxqt-panel"
+// spawn-at-startup "lxqt-runner"
+//
+// spawn-at-startup "nm-applet"
+// spawn-at-startup "pipewire"
+// spawn-at-startup "pipewire-pulse"
+// spawn-at-startup "way-displays"
+// spawn-at-startup "xwayland-satellite"
+// spawn-at-startup "foot" "--server"
+//
+// spawn-at-startup "/usr/libexec/xdg-desktop-portal-gnome"
+// spawn-at-startup "/usr/libexec/xdg-desktop-portal-lxqt"
+// spawn-at-startup "/usr/libexec/xdg-desktop-portal-gtk"
 
 
 prefer-no-csd
