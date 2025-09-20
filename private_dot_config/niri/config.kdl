@@ -42,14 +42,22 @@ input {
 /*#############
 # Environment #
 #############*/
-/-environment { // use lxqt-config instead
+environment { // use lxqt-config instead
   DISPLAY ":0"
+  DRI_PRIME "1"
+  EDITOR "nvim"
+  GTK_CSD "0"
+  GTK_OVERLAY_SCROLLING "0"
+  QT_QPA_PLATFORM "wayland;xcb"
+  SAL_USE_VCLPLUGIN "gtk3"
+  XBPS_DISTDIR "/data/Void-Packages/"
+  _JAVA_AWT_WM_NONREPARENTING "1"
 }
 
 /*########
 # cursor #
 ########*/
-/-cursor { // Use lxqt-config instead
+cursor { // Use lxqt-config instead
   xcursor-theme "volantes_cursors"
   xcursor-size 24
 }
@@ -78,7 +86,7 @@ overview {
 /*###########
 # Clipboard #
 ###########*/
-/-clipboard {
+clipboard {
   disable-primary
 }
 
