@@ -4,6 +4,14 @@ abbr dotdot --regex '^\.\.+$' --function multicd
 # vpsm abbreviation
 abbr vpsm vpsm --color=yes
 
+# chezmoi abbreviation
+abbr czedit chezmoi edit
+abbr czapply chezmoi apply
+abbr czdiff chezmoi diff
+abbr czstatus chezmoi status
+abbr czupdate chezmoi update
+abbr czcd chezmoi cd
+
 # xbps abbreviation
 abbr xa xbps-alternatives
 abbr xcv xbps-checkvers
