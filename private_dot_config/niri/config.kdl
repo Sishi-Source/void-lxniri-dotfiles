@@ -53,6 +53,7 @@ environment {
   XBPS_DISTDIR "/data/Void-Packages/"
   _JAVA_AWT_WM_NONREPARENTING "1"
 
+  XDG_CURRENT_DESKTOP "LXQt:niri:wlroots"
   XDG_DATA_HOME "/home/ulquiorra/.local/share"
   XDG_CONFIG_HOME "/home/ulquiorra/.config"
   XDG_CACHE_HOME "/home/ulquiorra/.cache"
@@ -196,13 +197,13 @@ spawn-at-startup "lxqt-powermanagement"
 spawn-at-startup "lxqt-policykit-agent"
 spawn-at-startup "lxqt-panel"
 spawn-at-startup "lxqt-runner"
-spawn-at-startup "lxqt-config-session"
 spawn-at-startup "xdg-user-dirs-update"
 
 spawn-at-startup "nm-applet"
 spawn-at-startup "pipewire"
 spawn-at-startup "pipewire-pulse"
 spawn-at-startup "way-displays"
+spawn-at-startup "swww-daemon"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "foot" "--server"
 
