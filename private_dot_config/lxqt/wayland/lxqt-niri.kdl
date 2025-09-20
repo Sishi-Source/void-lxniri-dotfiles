@@ -1,0 +1,460 @@
+/*#######
+# Input #
+#######*/
+input {
+  keyboard {
+    xkb {
+      layout "us,us(colemak_dh)"
+      options "caps:escape_shifted_capslock"
+    }
+    numlock
+  }
+
+  touchpad {
+    // off
+    tap
+    dwt
+    dwtp
+    natural-scroll
+    accel-speed 0.4
+    // accel-profile "flat"
+    // scroll-method "two-finger"
+    // disabled-on-external-mouse
+  }
+
+  disable-power-key-handling
+  workspace-auto-back-and-forth
+  mod-key "Super"
+  mod-key-nested "Alt"
+}
+
+/*########
+# Output #  
+########*/
+/-output "eDP-1" { // Use way-displays instead
+  // off
+  mode "1366x768@60.003"
+  scale 1
+  transform "normal"
+  position x=0 y=0
+}
+
+/*#############
+# Environment #
+#############*/
+/-environment { // use lxqt-config instead
+  DISPLAY ":0"
+}
+
+/*########
+# cursor #
+########*/
+/-cursor { // Use lxqt-config instead
+  xcursor-theme "volantes_cursors"
+  xcursor-size 24
+}
+
+/*##########
+# Gestures #
+##########*/
+gestures {
+  hot-corners {
+    off
+  }
+}
+
+/*##########
+# Overview #
+##########*/
+overview {
+  zoom 0.667
+  backdrop-color "#1e2326"
+
+  workspace-shadow {
+    off
+  }
+}
+
+/*###########
+# Clipboard #
+###########*/
+/-clipboard {
+  disable-primary
+}
+
+hotkey-overlay {
+  skip-at-startup
+}
+
+/*########
+# Layout #
+########*/
+layout {
+  gaps 4
+
+  always-center-single-column
+  center-focused-column "on-overflow"
+  default-column-display "tabbed"
+
+  background-color "#00000000"
+
+  preset-column-widths {
+    proportion 0.2
+    proportion 0.4
+    proportion 0.5
+    proportion 0.8
+    proportion 1.0
+  }
+
+  preset-window-heights {
+    proportion 0.33333
+    proportion 0.5
+    proportion 1.0
+  }
+
+  tab-indicator {
+    hide-when-single-tab
+    place-within-column
+    width 5
+    gap 10
+    gaps-between-tabs 10
+    corner-radius 5
+    position "left"
+  }
+
+  default-column-width {}
+
+  focus-ring {
+    off
+    width 2
+    active-color "#a7c080"
+    inactive-color "#4b565c"
+    // active-gradient from="#80c8ff" to="#bbddff" angle=45
+    // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
+  }
+
+  border {
+    off
+    width 4
+    active-color "#a7c080"
+    inactive-color "#4b565c"
+    // active-gradient from="#ffbb66" to="#ffc880" angle=45 relative-to="workspace-view"
+    // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
+  }
+
+  insert-hint {
+    color "#83c092cc"
+  }
+
+  shadow {
+    // on
+
+    draw-behind-window true
+    softness 40
+    spread 5
+    offset x=0 y=5
+
+    color "#00000064"
+    inactive-color "#00000034"
+  }
+
+  /-struts {
+    left 4
+    right 4
+    top 0
+    bottom 0
+  }
+}
+
+/*###############
+# Miscellaneous #
+###############*/
+spawn-at-startup "sh" "-c" "lxqt-session && niri msg action quit -s"
+
+prefer-no-csd
+
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+
+/*############
+# Animations #
+############*/
+animations {
+  // off
+  slowdown 1.2
+}
+
+/*############
+# Layer Rule #
+############*/
+layer-rule {
+  match namespace="desktop"
+
+  place-within-backdrop true
+}
+layer-rule {
+  match namespace="^launcher$"
+
+  // opacity 0.97
+  // baba-is-float true
+}
+
+/*#################
+# Named Workspace #
+#################*/
+workspace "main"
+workspace "browser"
+workspace "development"
+
+/*#############
+# Window Rule #
+#############*/
+window-rule {
+  match is-focused=true
+  opacity 0.911
+}
+window-rule {
+  match is-focused=false
+  opacity 0.733
+}
+window-rule {
+  geometry-corner-radius 4
+  clip-to-geometry true
+}
+
+/* ----- PCManFM-Qt ----- */
+window-rule {
+  match app-id="pcmanfm-qt"
+  opacity 1.00
+}
+
+/* ----- Btop++ ----- */
+window-rule {
+  match title="btop"
+
+  min-width 750
+  open-floating true
+}
+
+/* ----- Emoji Mart ----- */
+window-rule {
+  match app-id="it.mijorus.smile" title="Smile"
+  open-floating true
+}
+
+/* ----- CopyQ ----- */
+window-rule {
+  match app-id="copy"
+
+  open-floating true
+}
+
+/* ----- Chromium/Zen Browser ----- */
+window-rule {
+  match app-id="Chromium"
+  match app-id="chromium"
+  match app-id="zen"
+
+  open-on-workspace "browser"
+  open-focused true
+}
+window-rule {
+  match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+  match app-id=r#"zen$"# title="^Picture-in-Picture$"
+  match title=r#"Extension: (Bitwarden Password Manager) - Bitwarden — Zen Browser"
+  match title="^Picture in picture$"
+
+  // Floating windows for LXQt:
+  match app-id=r#"^lxqt-.*|pavu.*|.*copyq|qarma|.*portal-lxqt.*|.*conf$"#
+  // You may need to localize some of those:
+  match title=r#"^Preferen.*|.*file.*|Password.*|Prop.*|Close.*|Select.*$"#
+  exclude app-id="lxqt-archiver"
+  open-floating true
+}
+
+
+/* ----- Wezterm ----- */
+window-rule {
+  match app-id=r#"^org\.wezfurlong\.wezterm$"#
+  default-column-width {}
+}
+
+
+/* ----- Password Keep ----- */
+window-rule {
+  match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+  match app-id=r#"^org\.gnome\.World\.Secrets$"#
+
+  block-out-from "screen-capture"
+
+  // Use this instead if you want them visible on third-party screenshot tools.
+  // block-out-from "screencast"
+}
+
+
+/*##########
+# Keybinds #
+##########*/
+binds {
+  // Hint
+  Mod+Shift+F1 { show-hotkey-overlay; }
+
+  // Session Command Hotkeys
+  Ctrl+Alt+Delete hotkey-overlay-title="Exit Options" { spawn "lxqt-leave"; }
+  Alt+Ctrl+L hotkey-overlay-title="Lock Screen" { spawn "lxqt-leave" "--lockscreen"; }
+
+  // Default Apps
+  Mod+Return hotkey-overlay-title="Terminal" { spawn "footclient"; }
+  Mod+M hotkey-overlay-title="File Manager" { spawn "pcmanfm-qt"; }
+  Mod+B hotkey-overlay-title="Browser" { spawn "zen"; }
+  Mod+E hotkey-overlay-title="Editor" { spawn "code-oss" "%F"; }
+
+  Mod+O hotkey-overlay-title="Overview" repeat=false { toggle-overview; }
+  Mod+Space hotkey-overlay-title="Runner" { spawn "lxqt-runner"; }
+  Mod+Alt+V hotkey-overlay-title="Clipboard Manager" repeat=false { spawn "copyq" "toggle"; }
+  Mod+Ctrl+V hotkey-overlay-title="Emoji Picker" { spawn "flatpak" "run" "it.mijorus.smile"; }
+
+  XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
+  XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
+  XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+  XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+
+  //Brightness
+  // XF86MonBrightnessUp { spawn "lxqt-config-brightness" "-i"; }
+  // XF86MonBrightnessDown { spawn "lxqt-config-brightness" "-d"; }
+
+  Mod+Q { close-window; }
+
+  Mod+Left  { focus-column-left; }
+  Mod+Down  { focus-window-or-workspace-down; }
+  Mod+Up    { focus-window-or-workspace-up; }
+  Mod+Right { focus-column-right; }
+  Mod+H     { focus-column-left; }
+  Mod+J     { focus-window-or-workspace-down; }
+  Mod+K     { focus-window-or-workspace-up; }
+  Mod+L     { focus-column-right; }
+
+  Mod+Ctrl+Left  { move-column-left; }
+  Mod+Ctrl+Down     { move-window-down-or-to-workspace-down; }
+  Mod+Ctrl+Up     { move-window-up-or-to-workspace-up; }
+  Mod+Ctrl+Right { move-column-right; }
+  Mod+Ctrl+H     { move-column-left; }
+  Mod+Ctrl+J     { move-window-down-or-to-workspace-down; }
+  Mod+Ctrl+K     { move-window-up-or-to-workspace-up; }
+  Mod+Ctrl+L     { move-column-right; }
+
+  Mod+Home { focus-column-first; }
+  Mod+End  { focus-column-last; }
+  Mod+Ctrl+Home { move-column-to-first; }
+  Mod+Ctrl+End  { move-column-to-last; }
+
+  Mod+Shift+Left  { focus-monitor-left; }
+  Mod+Shift+Down  { focus-monitor-down; }
+  Mod+Shift+Up    { focus-monitor-up; }
+  Mod+Shift+Right { focus-monitor-right; }
+  Mod+Shift+H     { focus-monitor-left; }
+  Mod+Shift+J     { focus-monitor-down; }
+  Mod+Shift+K     { focus-monitor-up; }
+  Mod+Shift+L     { focus-monitor-right; }
+
+  Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
+  Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
+  Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
+  Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
+  Mod+Shift+Ctrl+H     { move-column-to-monitor-left; }
+  Mod+Shift+Ctrl+J     { move-column-to-monitor-down; }
+  Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
+  Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
+
+  Mod+Page_Down      { focus-workspace-down; }
+  Mod+Page_Up        { focus-workspace-up; }
+  Mod+U              { focus-workspace-down; }
+  Mod+I              { focus-workspace-up; }
+  Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
+  Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
+  Mod+Ctrl+U         { move-column-to-workspace-down; }
+  Mod+Ctrl+I         { move-column-to-workspace-up; }
+
+  Mod+Shift+Page_Down { move-workspace-down; }
+  Mod+Shift+Page_Up   { move-workspace-up; }
+  Mod+Shift+U         { move-workspace-down; }
+  Mod+Shift+I         { move-workspace-up; }
+
+  Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
+  Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
+  Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
+  Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
+
+  Mod+WheelScrollRight      { focus-column-right; }
+  Mod+WheelScrollLeft       { focus-column-left; }
+  Mod+Ctrl+WheelScrollRight { move-column-right; }
+  Mod+Ctrl+WheelScrollLeft  { move-column-left; }
+
+  Mod+Shift+WheelScrollDown      { focus-column-right; }
+  Mod+Shift+WheelScrollUp        { focus-column-left; }
+  Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
+  Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
+
+  Mod+1 { focus-workspace 1; }
+  Mod+2 { focus-workspace 2; }
+  Mod+3 { focus-workspace 3; }
+  Mod+4 { focus-workspace 4; }
+  Mod+5 { focus-workspace 5; }
+  Mod+6 { focus-workspace 6; }
+  Mod+7 { focus-workspace 7; }
+  Mod+8 { focus-workspace 8; }
+  Mod+9 { focus-workspace 9; }
+  Mod+Ctrl+1 { move-column-to-workspace 1; }
+  Mod+Ctrl+2 { move-column-to-workspace 2; }
+  Mod+Ctrl+3 { move-column-to-workspace 3; }
+  Mod+Ctrl+4 { move-column-to-workspace 4; }
+  Mod+Ctrl+5 { move-column-to-workspace 5; }
+  Mod+Ctrl+6 { move-column-to-workspace 6; }
+  Mod+Ctrl+7 { move-column-to-workspace 7; }
+  Mod+Ctrl+8 { move-column-to-workspace 8; }
+  Mod+Ctrl+9 { move-column-to-workspace 9; }
+
+  Mod+BracketLeft  { consume-or-expel-window-left; }
+  Mod+BracketRight { consume-or-expel-window-right; }
+
+  Mod+Comma  { consume-window-into-column; }
+  Mod+Period { expel-window-from-column; }
+
+
+  Mod+R { switch-preset-column-width; }
+  Mod+Shift+R { switch-preset-window-height; }
+  Mod+Ctrl+R { reset-window-height; }
+  Mod+F { maximize-column; }
+  Mod+Shift+F { fullscreen-window; }
+
+  Mod+Ctrl+F { expand-column-to-available-width; }
+  Mod+C { center-column; }
+  Mod+Ctrl+C { center-visible-columns; }
+
+  Mod+Minus { set-column-width "-5%"; }
+  Mod+Equal { set-column-width "+5%"; }
+  Mod+Ctrl+Minus { set-column-width "100%"; }
+
+  Mod+Shift+Minus { set-window-height "-10%"; }
+  Mod+Shift+Equal { set-window-height "+10%"; }
+  Mod+Ctrl+Equal { set-window-height "100%"; }
+
+  Mod+V       { toggle-window-floating; }
+  Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+
+  Mod+W { toggle-column-tabbed-display; }
+
+  // Keyboard Layout Switch
+  // Mod+Ctrl+Space       { switch-layout "next"; }
+  // Mod+Ctrl+Shift+Space { switch-layout "prev"; }
+
+  Print { screenshot; }
+  Ctrl+Print { screenshot-screen; }
+  Alt+Print { screenshot-window; }
+
+  Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+
+  Mod+Shift+E { quit; }
+
+  Mod+Shift+P { power-off-monitors; }
+}

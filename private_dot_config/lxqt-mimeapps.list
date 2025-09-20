@@ -1,0 +1,4 @@
+[Default Applications]
+image/png=lximage-qt.desktop
+image/jpeg=lximage-qt.desktop
+text/markdown=nvim.desktop

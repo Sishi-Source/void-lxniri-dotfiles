@@ -1,0 +1,58 @@
+# Fluent-roundDark color scheme for Starship
+
+format = '$directory$git_branch$git_status '
+right_format = '$python'
+
+[directory]
+home_symbol = '|home'
+truncation_length = 1
+truncation_symbol = '|'
+style = "bold #8ab4f8"
+format = "\\[[$path]($style)\\]"
+
+# [directory.substitutions]
+# '/bin' = '|bin'
+# '/boot' = '|boot'
+# '/data' = '|data'
+# '/dev' = '|dev'
+# '/etc' = '|etc'
+# '/home' = '|home'
+# '/lib' = '|lib'
+# '/lib32' = '|lib32'
+# '/lib64' = '|lib64'
+# '/lost+found' = '|lost+found'
+# '/media' = '|media'
+# '/mnt' = '|mnt'
+# '/opt' = '|opt'
+# '/proc' = '|proc'
+# '/repo' = '|repo'
+# '/root' = '|root'
+# '/run' = '|run'
+# '/sbin' = '|sbin'
+# '/sys' = '|sys'
+# '/tmp' = '|tmp'
+# '/usr' = '|usr'
+# '/var' = '|var'
+
+
+[git_branch]
+style = "bold #58a6ff"
+format = "\\([$branch $symbol]($style)\\)"
+symbol = "󰘬"
+
+[git_status]
+style = "#ff7b72"
+format = "[$stashed$untracked$staged$renamed$deleted$modified$ahead_behind]($style)"
+stashed = "󰏓"
+untracked = ""
+staged = ""
+renamed = ">"
+deleted = ""
+modified = ""
+ahead = "${count}"
+behind = "${behind_count}${ahead_count}" # Swapped for aesthetics
+diverged = "(${ahead_count}${behind_count})" # Swapped for aesthetics
+
+[python]
+style = "bold #d29922"
+format = "[$virtualenv]($style)"

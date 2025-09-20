@@ -1,0 +1,45 @@
+image=/home/ulquiorra/Pictures/Wallpaper/yoruichi_3840x2160.png
+scaling=fill
+font=JetBrainsMono NFM
+font-size=22
+
+# Text colors
+text-color=#dedede
+text-clear-color=#0078D4
+text-ver-color=#0078D4
+text-wrong-color=#ff7b72
+text-caps-lock-color=#d29922
+
+# Inside colors
+inside-color=#2B2B2B80
+inside-clear-color=#0078D480
+inside-ver-color=#0078D480
+inside-wrong-color=#ff7b7280
+inside-caps-lock-color=#d2992280
+
+# Ring colors
+ring-color=#333333
+ring-clear-color=#0078D4
+ring-ver-color=#0078D4
+ring-wrong-color=#ff7b72
+ring-caps-lock-color=#d29922
+
+# Line colors
+line-color=#333333
+line-clear-color=#0078D4
+line-ver-color=#0078D4
+line-wrong-color=#ff7b72
+line-caps-lock-color=#d29922
+line-uses-ring
+
+# Other colors
+key-hl-color=#0078D4
+bs-hl-color=#ff7b72
+caps-lock-key-hl-color=#d29922
+caps-lock-bs-hl-color=#d29922
+separator-color=#464646
+layout-bg-color=#2B2B2BB0
+layout-border-color=#0078D4
+layout-text-color=#dedede
+indicator-radius=100 
+indicator-thickness=10
