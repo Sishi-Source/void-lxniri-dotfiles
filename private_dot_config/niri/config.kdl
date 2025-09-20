@@ -196,7 +196,6 @@ spawn-at-startup "nm-applet"
 spawn-at-startup "pipewire"
 spawn-at-startup "pipewire-pulse"
 spawn-at-startup "way-displays"
-spawn-at-startup "swww-daemon"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "foot" "--server"
 
