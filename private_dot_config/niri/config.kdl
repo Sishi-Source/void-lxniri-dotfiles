@@ -42,7 +42,7 @@ input {
 /*#############
 # Environment #
 #############*/
-environment { // use lxqt-config instead
+environment {
   DISPLAY ":0"
   DRI_PRIME "1"
   EDITOR "nvim"
@@ -52,12 +52,23 @@ environment { // use lxqt-config instead
   SAL_USE_VCLPLUGIN "gtk3"
   XBPS_DISTDIR "/data/Void-Packages/"
   _JAVA_AWT_WM_NONREPARENTING "1"
+
+  XDG_DATA_HOME "/home/ulquiorra/.local/share"
+  XDG_CONFIG_HOME "/home/ulquiorra/.config"
+  XDG_CACHE_HOME "/home/ulquiorra/.cache"
+  XDB_MENU_PREFIX "lxqt-"
+  
+  QT_QPA_PLATFORM "wayland;xcb"
+  QT_QPA_PLATFORMTHEME "qt5ct"
+  QT_EXCLUDE_GENERIC_BEARER "1"
+  QT_AUTO_SCREEN_SCALE_FACTOR "0"
+  QT_ACCESSIBILITY "1"
 }
 
 /*########
 # cursor #
 ########*/
-cursor { // Use lxqt-config instead
+cursor {
   xcursor-theme "volantes_cursors"
   xcursor-size 24
 }
@@ -178,22 +189,26 @@ layout {
 # Miscellaneous #
 ###############*/
 spawn-at-startup "sh" "-c" "lxqt-session && niri msg action quit -s"
+spawn-at-startup "sh" "-c" "/home/ulquiorra/.local/share/script/gsettings.sh &"
+
 spawn-at-startup "lxqt-notificationd"
 spawn-at-startup "lxqt-powermanagement"
 spawn-at-startup "lxqt-policykit-agent"
 spawn-at-startup "lxqt-panel"
-spawn-at-startup "foot" "--server"
+spawn-at-startup "lxqt-runner"
+spawn-at-startup "lxqt-config-session"
+spawn-at-startup "xdg-user-dirs-update"
+
 spawn-at-startup "nm-applet"
 spawn-at-startup "pipewire"
 spawn-at-startup "pipewire-pulse"
+spawn-at-startup "way-displays"
+spawn-at-startup "xwayland-satellite"
+spawn-at-startup "foot" "--server"
+
 spawn-at-startup "/usr/libexec/xdg-desktop-portal-gnome"
 spawn-at-startup "/usr/libexec/xdg-desktop-portal-lxqt"
 spawn-at-startup "/usr/libexec/xdg-desktop-portal-gtk"
-spawn-at-startup "/usr/libexec/xdg-desktop-portal-wlr"
-spawn-at-startup "xdg-user-dirs-update"
-spawn-at-startup "sh" "-c" "/home/ulquiorra/.local/share/script/gsettings.sh &"
-spawn-at-startup "way-displays"
-spawn-at-startup "xwayland-satellite"
 
 
 prefer-no-csd
