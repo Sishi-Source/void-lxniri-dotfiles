@@ -192,13 +192,6 @@ layout {
 spawn-at-startup "sh" "-c" "lxqt-session && niri msg action quit -s"
 spawn-at-startup "sh" "-c" "/home/ulquiorra/.local/share/script/gsettings.sh &"
 
-spawn-at-startup "lxqt-notificationd"
-spawn-at-startup "lxqt-powermanagement"
-spawn-at-startup "lxqt-policykit-agent"
-spawn-at-startup "lxqt-panel"
-spawn-at-startup "lxqt-runner"
-spawn-at-startup "xdg-user-dirs-update"
-
 spawn-at-startup "nm-applet"
 spawn-at-startup "pipewire"
 spawn-at-startup "pipewire-pulse"
