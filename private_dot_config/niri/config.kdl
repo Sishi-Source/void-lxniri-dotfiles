@@ -222,7 +222,7 @@ animations {
 # Layer Rule #
 ############*/
 layer-rule {
-  match namespace="swww-daemon"
+  match namespace="desktop"
 
   place-within-backdrop true
 }
