@@ -60,7 +60,7 @@ environment {
   XDB_MENU_PREFIX "lxqt-"
   
   QT_QPA_PLATFORM "wayland;xcb"
-  QT_QPA_PLATFORMTHEME "qt5ct"
+  QT_QPA_PLATFORMTHEME "lxqt"
   QT_EXCLUDE_GENERIC_BEARER "1"
   QT_AUTO_SCREEN_SCALE_FACTOR "0"
   QT_ACCESSIBILITY "1"
@@ -229,7 +229,7 @@ animations {
 # Layer Rule #
 ############*/
 layer-rule {
-  match namespace="desktop"
+  match namespace="swww-daemon"
 
   place-within-backdrop true
 }
