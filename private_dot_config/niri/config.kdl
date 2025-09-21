@@ -205,6 +205,8 @@ spawn-at-startup "pipewire-pulse"
 spawn-at-startup "way-displays"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "foot" "--server"
+spawn-at-startup "copyq"
+spawn-at-startup "xdg-user-dirs-update"
 
 spawn-at-startup "/usr/libexec/xdg-desktop-portal-gnome"
 spawn-at-startup "/usr/libexec/xdg-desktop-portal-lxqt"
