@@ -197,6 +197,7 @@ spawn-at-startup "lxqt-notificationd"
 spawn-at-startup "lxqt-powermanagement"
 spawn-at-startup "lxqt-panel"
 spawn-at-startup "lxqt-runner"
+spawn-at-startup "swww-daemon"
 
 spawn-at-startup "nm-applet"
 spawn-at-startup "pipewire"
@@ -228,6 +229,7 @@ animations {
 ############*/
 layer-rule {
   match namespace="desktop"
+  match namespace="swww-daemon"
 
   place-within-backdrop true
 }
