@@ -279,8 +279,15 @@ window-rule {
   open-focused true
 }
 
+/* ----- kicad ----- */
+window-rule {
+  match app-id="kicad" title="Symbol Library Browser$"
+
+  open-floating true
+}
+
 /* ----- PCManFM-Qt ----- */
-/-window-rule {
+window-rule {
   match app-id="pcmanfm-qt"
   opacity 1.00
 }
