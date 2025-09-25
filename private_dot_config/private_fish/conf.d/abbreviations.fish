@@ -5,6 +5,7 @@ abbr dotdot --regex '^\.\.+$' --function multicd
 abbr vpsm vpsm --color=yes
 
 # chezmoi abbreviation
+abbr cz chezmoi
 abbr czadd chezmoi add
 abbr czreadd chezmoi re-add
 abbr czedit chezmoi edit
