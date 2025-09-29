@@ -208,9 +208,7 @@ spawn-at-startup "foot" "--server"
 spawn-at-startup "copyq"
 spawn-at-startup "xdg-user-dirs-update"
 
-spawn-at-startup "/usr/libexec/xdg-desktop-portal-gnome"
-spawn-at-startup "/usr/libexec/xdg-desktop-portal-lxqt"
-spawn-at-startup "/usr/libexec/xdg-desktop-portal-gtk"
+spawn-at-startup "/usr/libexec/xdg-desktop-portal"
 
 
 prefer-no-csd
@@ -258,7 +256,7 @@ workspace "development"
 #############*/
 window-rule {
   match is-focused=true
-  opacity 0.911
+  opacity 1.00
 }
 window-rule {
   match is-focused=false
@@ -282,7 +280,11 @@ window-rule {
 /* ----- kicad ----- */
 window-rule {
   match app-id="kicad" title="Symbol Library Browser$"
+  match app-id="kicad" title="^Footprint Chooser"
 
+  min-width 900
+  min-height 600
+  default-floating-position x=233 y=84 relative-to="bottom-left"
   open-floating true
 }
 
