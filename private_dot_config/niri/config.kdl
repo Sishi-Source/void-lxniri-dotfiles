@@ -291,6 +291,7 @@ window-rule {
 /* ----- PCManFM-Qt ----- */
 window-rule {
   match app-id="pcmanfm-qt"
+  match is-focused=true
   opacity 1.00
 }
 
