@@ -4,6 +4,12 @@ abbr dotdot --regex '^\.\.+$' --function multicd
 # vpsm abbreviation
 abbr vpsm vpsm --color=yes
 
+# zellij abbreviation
+abbr zattach zellij attach -c
+abbr zkill zellij kill-session
+abbr zls zellij list-sessions
+abbr zdel zellij delete-session
+
 # chezmoi abbreviation
 abbr cz chezmoi
 abbr czadd chezmoi add
