@@ -21,6 +21,9 @@ abbr czstatus chezmoi status
 abbr czupdate chezmoi update
 abbr czcd chezmoi cd
 
+# lazygit abbreviation
+abbr git lazygit
+
 # xbps abbreviation
 abbr xa xbps-alternatives
 abbr xcv xbps-checkvers
