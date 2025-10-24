@@ -1,6 +1,6 @@
 return {
   "anurag3301/nvim-platformio.lua",
-  -- cmd = { 'Pioinit', 'Piorun', 'Piocmdh', 'Piocmdf', 'Piolib', 'Piomon', 'Piodebug', 'Piodb' },
+  cmd = { "Pioinit", "Piorun", "Piocmdh", "Piocmdf", "Piolib", "Piomon", "Piodebug", "Piodb" },
 
   -- optional: cond used to enable/disable platformio
   -- based on existance of platformio.ini file and .pio folder in cwd.
